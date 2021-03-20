@@ -1,0 +1,46 @@
+﻿@model IEnumerable<AppAcademico.Models.Cursos>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cursos Suscrito</h1>
+
+@*<p>
+        <a asp-action="Create">Create New</a>
+    </p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Curso
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var item in Model)
+        {
+            string visible = "";
+            if (item.Usuario != User.Identity.Name)
+            {
+                visible = "d-none";
+            }
+
+
+        <tr class="@visible">
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCurso)
+            </td>
+            <td>
+                <a asp-action="Evaluacion" asp-route-id="@item.IdCurso">Evaluaciones</a>
+            </td>
+        </tr>
+        }
+
+    </tbody>
+</table>

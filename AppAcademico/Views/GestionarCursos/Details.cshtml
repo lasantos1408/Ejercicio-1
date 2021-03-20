@@ -1,0 +1,34 @@
+﻿@model AppAcademico.Models.Cursos
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <h4>Cursos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NombreCurso)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NombreCurso)
+        </dd>
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>*@
+        @*<dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>*@
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdCurso">Editar</a>  |
+    <a asp-action="Estudiante" asp-route-id="@Model.IdCurso">Estudiantes</a>  |
+    <a asp-action="Evaluacion" asp-route-id="@Model.IdCurso">Evaluaciones</a>  |
+    <a asp-action="Delete" asp-route-id="@Model.IdCurso">Eliminar</a>  |
+    <a asp-action="Index">Regresar</a>
+</div>

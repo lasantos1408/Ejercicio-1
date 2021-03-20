@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AppAcademico.Models.CursosAsignados>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Cursos</h1>
+
+<p>
+    <a asp-action="Create">Suscribirse a un curso</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.IdCurso)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.NombreCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Usuario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+
+    if (item.Usuario == User.Identity.Name)
+    {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.IdCurso)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreCurso)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Usuario)
+            </td>
+            <td>
+                <a asp-action="Evaluacion" asp-route-id="@item.IdCurso">Evaluaciones</a> |
+                <a asp-action="Edit" asp-route-id="@item.IdCursosAsignados">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCursosAsignados">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCursosAsignados">Eliminar</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AppAcademico.Models.Eval>
+
+@{
+    ViewData["Title"] = "Evaluacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Evaluaciones del curso</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCurso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{ int i = 1;
+            int cont = Model.Count() - 5;
+            }
+        @foreach (var item in Model)
+        {
+
+            //string visible = "";
+            var identif = @ViewContext.RouteData.Values["id"];
+            if (item.IdCurso.ToString() == identif.ToString())
+            {
+                //visible = "d-none";
+                if (i >= cont)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nota)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdCurso)
+                    </td>
+                    @*<td>
+                        <a asp-action="Edit" asp-route-id="@item.IdEval">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.IdEval">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.IdEval">Delete</a>
+                    </td>*@
+                </tr>
+                }
+            }
+
+            i++;
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Index">Regresar a los cursos</a>
+</div>

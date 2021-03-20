@@ -1,0 +1,36 @@
+﻿@model List<AppAcademico.Models.UserRolesViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Listado Usuarios Roles</h1>
+<p>
+    <a class="nav-link text-primary" asp-area="Identity" asp-page="/Account/Register">+ Nuevo Usuario</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <th>Email</th>
+            <th>Roles</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
+            <td>@user.Email</td>
+            <td>@string.Join(" , ", user.Roles.ToList())</td>
+            <td>
+                <a asp-controller="UserRoles" asp-action="Manage" asp-route-userId="@user.UserId">Gestionar Roles</a> |
+                <a asp-area="Identity" asp-page="/Account/Manage/Index" asp-route-userId="@user.UserId" title="Manage"> Editar Usuario </a>
+            </td>
+            
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AppAcademico.Models.Eval>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Evaluaciones de curso</h1>
+
+<p>
+    <a asp-action="Create" >Nueva Evaluación</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nota)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCurso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    var identif = TempData["identifCurso"].ToString();
+    if (item.IdCurso.ToString() == identif.ToString())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCurso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEval" >Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEval" >Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEval" >Eliminar</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>
+<div>
+    <a asp-controller="GestionarCursos" asp-action="Index">Regresar a los Cursos</a>
+</div>

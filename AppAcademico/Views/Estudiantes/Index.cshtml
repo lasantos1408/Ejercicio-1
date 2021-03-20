@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AppAcademico.Models.Estudiante>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Estudiantes</h1>
+
+<p>
+    <a asp-action="Create">Nuevo Estudiante</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.usuarioEst)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdCurso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    var identif = TempData["identifCurso"].ToString();
+    if (item.IdCurso.ToString() == identif.ToString())
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                <label class="control-label">Usuario Estudiante</label>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCurso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdEstudiante">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.IdEstudiante">Detalle</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdEstudiante">Eliminar</a>
+            </td>
+        </tr>
+    }
+}
+    </tbody>
+</table>
+<div>
+    <a asp-controller="GestionarCursos" asp-action="Index">Regresar a los Cursos</a>
+</div>
