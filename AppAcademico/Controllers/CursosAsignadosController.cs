@@ -21,10 +21,10 @@ namespace AppAcademico.Controllers
         }
 
         // GET: CursosAsignados
-        [Authorize(Roles = "Administrador")]
-        [Authorize(Roles = "Profesor")]
-        [Authorize(Roles = "Alumno")]
-        [Authorize(Roles = "Basico")]
+        //[Authorize(Roles = "Administrador")]
+        //[Authorize(Roles = "Profesor")]
+        //[Authorize(Roles = "Alumno")]
+        //[Authorize(Roles = "Basico")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.CursosAsignados.ToListAsync());
