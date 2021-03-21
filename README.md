@@ -17,6 +17,7 @@ Instalar los siguientes programas en caso de no tener para el correcto funcionam
 <strong> Update-Database </strong>
 - A continuación ejecutar solución presionando la combinación de teclas (Ctrl + F5)
 - Para acceder a la aplicación hacerlo con el usuario y password predeterminados que se proporcionan a continuación: <br />
+
  <strong>Usuario:</strong> admin  <br />
  <strong>Password:</strong> 123Pa$$word.
  
