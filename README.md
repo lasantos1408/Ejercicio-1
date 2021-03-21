@@ -13,6 +13,7 @@ Instalar los siguientes programas en caso de no tener para el correcto funcionam
 - En explorador de soluciones clic derecho sobre la aplicación y luego hacer clic en la opción Compilar.
 - En las opciones de Visual Studio hacer clic en Herramientas, luego Administrador de paquetes NuGet y en el submenú  que aparece hacer clic en la opción (Consola de administración de paquetes).
 - Dentro de la consola de administración de paquetes ejecutar los siguientes comandos uno a continuación de otro: <br />
+
 <strong>Add-Migration "Actualizacion" </strong><br />
 <strong> Update-Database </strong>
 - A continuación ejecutar solución presionando la combinación de teclas (Ctrl + F5)
