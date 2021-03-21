@@ -18,8 +18,8 @@ Instalar los siguientes programas en caso de no tener para el correcto funcionam
 - A continuación ejecutar solución presionando la combinación de teclas (Ctrl + F5)
 - Para acceder a la aplicación hacerlo con el usuario y password predeterminados que se proporcionan a continuación: <br />
 
- <strong>Usuario:</strong> admin  <br />
- <strong>Password:</strong> 123Pa$$word.
+      <strong>Usuario:</strong> admin  <br />
+      <strong>Password:</strong> 123Pa$$word.
  
  - El usuario admin tiene rol de administrador por lo que con este se podrá acceder a todas las funcionalidades, crear nuevos usuarios y asignarle un rol.
  
