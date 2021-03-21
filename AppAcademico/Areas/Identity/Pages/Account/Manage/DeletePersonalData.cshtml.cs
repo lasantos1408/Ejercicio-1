@@ -95,7 +95,7 @@ namespace AppAcademico.Areas.Identity.Pages.Account.Manage
             _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
 
             TempData["userId"] = user.Id;
-            return Redirect("~/");
+            return Redirect("~/UserRoles");
         }
     }
 }

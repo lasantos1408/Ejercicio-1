@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AppAcademico.Data;
 using AppAcademico.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppAcademico.Controllers
 {
@@ -20,6 +21,10 @@ namespace AppAcademico.Controllers
         }
 
         // GET: CursosAsignados
+        [Authorize(Roles = "Administrador")]
+        [Authorize(Roles = "Profesor")]
+        [Authorize(Roles = "Alumno")]
+        [Authorize(Roles = "Basico")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.CursosAsignados.ToListAsync());
