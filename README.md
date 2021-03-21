@@ -1,2 +1,2 @@
-# Ejercicio-1
+# Sistema Académico
 Sistema Académico
